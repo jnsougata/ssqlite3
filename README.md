@@ -40,6 +40,10 @@ db.conn.execute("UPDATE users SET city='New York' WHERE id=1")
 db.commit()
 ```
 
-- you can do all the operations that you can do with sqlite3.
+```python
+# print all the users with name starting with J
+users = db.conn.execute("SELECT * FROM users WHERE name LIKE 'J%'").fetchall()
+print(users)
+```
 - don't forget to commit the changes after doing a bunch oprations.
 
