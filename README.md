@@ -4,5 +4,6 @@
 ## Installation
 
 ```bash
-$ pip install git+https://github.com/jnsougata/space-sqlite3.git
+pip install git+https://github.com/jnsougata/space-sqlite3.git
 ```
+
