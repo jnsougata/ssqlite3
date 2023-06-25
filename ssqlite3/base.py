@@ -20,7 +20,7 @@ class SQLBase(deta._Base):
             project_id=project_key.split("_")[0],
         )
         self.conn = None
-        self.block_hahses = {}
+        self.block_hashes = {}
     
     def connect(self,):
         self.conn = sqlite3.connect(":memory:")
@@ -35,7 +35,7 @@ class SQLBase(deta._Base):
         items = sorted(items, key=lambda x: x.index)
         self.script = "".join([item.chunk for item in items])
         for item in items:
-            self.block_hahses[item.index] = item.hash
+            self.block_hashes[item.index] = item.hash
         self.conn.cursor().executescript(self.script)
     
     def commit(self):
@@ -49,7 +49,7 @@ class SQLBase(deta._Base):
         chunks = [data[i : i + chunk_size] for i in range(0, len(data), chunk_size)]
         updates = []
         for i, chunk in enumerate(chunks):
-            previous_hash = self.block_hahses.get(i, "")
+            previous_hash = self.block_hashes.get(i, "")
             current_hash = hashlib.sha256(chunk.encode()).hexdigest()
             if previous_hash and previous_hash == current_hash:
                 continue
