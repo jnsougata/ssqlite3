@@ -1,9 +1,9 @@
-# space-sqlite3
+# ssqlite3
 
 ## Installation
 
 ```bash
-pip install git+https://github.com/jnsougata/space-sqlite3.git
+pip install git+https://github.com/jnsougata/ssqlite3.git
 ```
 
 # Usage
@@ -45,5 +45,5 @@ db.commit()
 users = db.conn.execute("SELECT * FROM users WHERE name LIKE 'J%'").fetchall()
 print(users)
 ```
-- don't forget to commit the changes after doing a bunch oprations.
+- don't forget to commit the changes after doing a bunch of oprations.
 
